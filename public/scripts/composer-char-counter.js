@@ -11,8 +11,6 @@
 // });
 
 //=============CHARACTER COUNTER==================//
-//=========IF COUNTER OVER 140 TEXT IS RED============//
-//=============ELSE TEXT IS GREY==================//
 $(function() {
   var countCharacters = function() {
     var entered = $("textarea", this).val().length;
@@ -23,6 +21,20 @@ $(function() {
       $(".counter", this).css('color', 'grey');
     }
   };
-
   $(".new-tweet").on('input', countCharacters);
 });
+
+
+//=============COMPOSE MESSAGE==================//
+
+$( "#nav-bar text.compose" ).click(function() {
+  $( "main.container section.new-tweet" ).slideToggle( "slow", function() {
+    $("textarea").focus();
+  });
+});
+
+
+
+
+
+

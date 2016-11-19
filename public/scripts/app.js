@@ -8,27 +8,27 @@ $(document).ready(function () {
   }
 
   function createTweetElement(tweet) {
+    //create variabled for tweeter data,
+    //used to append to html elements
     var name = tweet.user.name;
     var avatar = tweet.user.avatars.small;
     var handle = tweet.user.handle;
     var content = tweet.content.text;
     var created = tweet.created_at;
-
+    // an insanely overly compicated way of
+    // getting the amout of days since tweet was made
     var today = Date.now();
     var millisElapsed = today - created;
     var daysElapsed = millisElapsed/86400000;
     var roundedDays = Math.round(daysElapsed);
-    console.log(roundedDays);
 
     if(roundedDays === 0) {
-      var day = "Tweeted today."
+      var day = "Tweeted today.";
     } else if (roundedDays === 1) {
-      var day = "Tweeted yesteday."
+      var day = "Tweeted yesteday.";
     } else {
-      var day = "Tweeted " + roundedDays + " days ago."
+      var day = "Tweeted " + roundedDays + " days ago.";
     }
-
-
 
     //to be appended to #tweet-container
     var $tweet = $("<article>").addClass("tweet");//.append(tweetData.context.text);
@@ -62,18 +62,26 @@ $(document).ready(function () {
     return $tweet;
   };
 
-
   $('form[action="/tweets"]').on('submit', function (event) {
     event.preventDefault();
     var tweetInput = $(this);
+    var input = tweetInput.find("textarea").serialize();
 
-    $.ajax({
-      method: 'POST',
-      url: tweetInput.attr('action'),
-      data: tweetInput.find("textarea").serialize()
-    }).done(function () {
-      loadTweets();
-    });
+    if(input.length > 145) {
+      alert("Message must be under 140 characters")
+      } else if (input === "text=") {
+        alert("You did not entet a tweet!")
+      } else
+      $.ajax({
+        method: 'POST',
+        url: tweetInput.attr('action'),
+        data: tweetInput.find("textarea").serialize()
+      }).done(function () {
+        loadTweets();
+      });
+      $('form[action="/tweets"]').each(function() {
+       this.reset();
+     })
   });
 
   function loadTweets() {

@@ -19,13 +19,13 @@ article.tweet:hover {
 }
 
 article.tweet header {
-  background-color: #fff;
+  background-color: #eee;
   border-radius: 10px 10px 0px 0px;
   padding: 10px;
 }
 
 article.tweet:hover header {
-  background-color: #eee;
+  background-color: #e8fdff;
   border-radius: 10px 10px 0px 0px;
   padding: 10px;
 }
@@ -34,6 +34,12 @@ article.tweet header img {
   border-radius: 10px;
   height: 80px;
   width: 80px;
+}
+
+article.tweet header img:hover {
+  border-radius: 10px;
+  height: 100px;
+  width: 100px;
 }
 
 article.tweet header text {
@@ -100,6 +106,9 @@ article.tweet footer i.fa-retweet:hover {
 article.tweet footer i.fa-heart:hover {
   color: red;
 }
+
+
+
 
 
 

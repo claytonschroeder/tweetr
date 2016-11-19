@@ -7,22 +7,52 @@
   left: 0;
   right:0;
   top: 0;
-
+  z-index: 10;
 }
 
 #nav-bar .header {
-  color: #e8fdff;
+  color: #fff;
   font-size: 200%;
   float: left;
   padding-left: 10px;
   line-height: 80px;
-
-
-
 }
 
 #nav-bar .logo {
-    height: 80px;
-    width: 80px;
-    float: left;
+  height: 80px;
+  width: 80px;
+  float: left;
+}
+
+#nav-bar text {
+  padding-left: 8px;
+}
+
+#nav-bar text.compose {
+  float:right;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  color: black;
+  width: 100px;
+  border: 1px solid black;
+  line-height: 50px;
+}
+
+#nav-bar text.compose {
+  float:right;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  color: black;
+  width: 100px;
+  border: 1px solid black;
+  line-height: 50px;
+}
+
+#nav-bar text.compose:hover {
+  color: #00a087;
+  background-color: #eee;
 }
